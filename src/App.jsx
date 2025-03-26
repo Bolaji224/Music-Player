@@ -6,6 +6,7 @@ import { PlayerContext } from "./context/PlayerContext";
 
 const App = () => {
   const { audioRef, track, songsData } = useContext(PlayerContext);
+
   return (
     <div className="h-screen bg-black">
       {songsData.length !== 0 ? (
@@ -18,12 +19,16 @@ const App = () => {
         </>
       ) : null}
 
-      <audio
-        ref={audioRef}
-        src={track ? track.file : ""}
-        preload="auto"
-      ></audio>
+      {/* Only render audio element if track.file exists */}
+      {track?.file && (
+        <audio ref={audioRef} src={track.file} preload="auto"></audio>
+      )}
     </div>
+  );
+};
+
+export default App;
+
   );
 };
 
