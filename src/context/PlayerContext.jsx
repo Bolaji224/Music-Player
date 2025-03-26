@@ -8,7 +8,7 @@ const PlayerContextProvider = ({ children }) => {
   const seekBg = useRef(null);
   const seekBar = useRef(null);
 
-  const url = "http://localhost:4000";
+  const url = "https://music-backend-1nif.onrender.com";
 
   const [songsData, setSongsData] = useState([]);
   const [albumsData, setAlbumsData] = useState([]);
@@ -28,7 +28,7 @@ const PlayerContextProvider = ({ children }) => {
         setTrack(response.data.songs[0]);
       }
     } catch (error) {
-      console.error("Error fetching songs data:", error);
+      console.error("Error fetching songs data:");
     }
   };
 
